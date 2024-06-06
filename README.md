@@ -16,7 +16,14 @@ Desafio Itau Vaga Eng de Software Itau
 ![Screenshot from 2024-06-06 10-57-28](https://github.com/lourencoguilherme/desafio-itau-vaga-eng-de-software/assets/49289593/08969ca2-a3dd-45fe-91da-08394cc054e5)
 
 #### Diagrama de sequência
-![Screenshot from 2024-06-06 11-08-45](https://github.com/lourencoguilherme/desafio-itau-vaga-eng-de-software/assets/49289593/2f89f73a-e698-42ec-96f5-0bb412fbe35d)
+![Screenshot from 2024-06-06 16-11-49](https://github.com/lourencoguilherme/desafio-itau-vaga-eng-de-software/assets/49289593/7086cbf2-8765-41c6-8282-360a1dc4befc)
+
+#### Video demonstrativo
+
+
+https://github.com/lourencoguilherme/desafio-itau-vaga-eng-de-software/assets/49289593/1997d620-42f7-4e70-89f6-a3fff21f6dbe
+
+
 
 
 ## Para rodar o projeto
