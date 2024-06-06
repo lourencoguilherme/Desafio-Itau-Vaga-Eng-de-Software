@@ -13,9 +13,11 @@ public class S3Repository<T> implements BucketRepository<T> {
     @Autowired
     private AmazonS3 amazonS3;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @Override
     public void saveInFile(String dirOrBucketName, String key, T object) throws JsonProcessingException {
-        ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(object);
 
         // Salvar o JSON no Amazon S3
