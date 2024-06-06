@@ -1,9 +1,183 @@
-<mxfile host="app.diagrams.net" modified="2024-06-05T21:53:48.574Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" version="24.4.14" etag="BjrqYuSY3wK5jkygJR3Y" type="github">
+<mxfile host="Electron" modified="2024-06-06T02:27:27.731Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.13 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="8r1M3UYgO8OEJt3BUn9G" version="24.4.13" type="device">
   <diagram name="Page-1" id="HDnC6sEU8wcp8YAuJ0Jl">
-    <mxGraphModel>
+    <mxGraphModel dx="2201" dy="1179" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-1" value="S3" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#7AA116;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.glacier;" vertex="1" parent="1">
+          <mxGeometry x="425" y="160" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="QLIatf9QMXNeSE1yPhSc-9" target="QLIatf9QMXNeSE1yPhSc-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="218" y="160" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="600" y="87" />
+              <mxPoint x="600" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-62" value="Salva os arquivos de log&amp;nbsp;&lt;div&gt;da tabela customers no s3&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QLIatf9QMXNeSE1yPhSc-7">
+          <mxGeometry x="0.004" y="-3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QLIatf9QMXNeSE1yPhSc-9" target="QLIatf9QMXNeSE1yPhSc-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="87" />
+              <mxPoint x="470" y="91" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-61" value="Lista dados de log da tabela customers" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QLIatf9QMXNeSE1yPhSc-10">
+          <mxGeometry x="-0.1141" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-9" value="Spot Instance customer service" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.spot_instance;fillColor=#F58534;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="640" y="55.5" width="60" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-17" value="desenho de solução" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-410" y="10" width="1240" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-12" value="Internet Gatway" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.internet_gateway;fillColor=#F58534;gradientColor=none;" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-17">
+          <mxGeometry x="60" y="110" width="69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-11" value="Application Load Balance" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.application_load_balancer;fillColor=#F58534;gradientColor=none;" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-17">
+          <mxGeometry x="186" y="110" width="69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="QLIatf9QMXNeSE1yPhSc-17" source="QLIatf9QMXNeSE1yPhSc-12" target="QLIatf9QMXNeSE1yPhSc-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-13" value="Instancias customer service" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.instances;fillColor=#F58534;gradientColor=none;" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-17">
+          <mxGeometry x="450" y="113.5" width="60" height="63" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="QLIatf9QMXNeSE1yPhSc-17" source="QLIatf9QMXNeSE1yPhSc-11" target="QLIatf9QMXNeSE1yPhSc-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-5" value="DB" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.db_on_instance;fillColor=#F58534;gradientColor=none;" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-17">
+          <mxGeometry x="680" y="49" width="60" height="64.5" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="QLIatf9QMXNeSE1yPhSc-17" source="QLIatf9QMXNeSE1yPhSc-13" target="QLIatf9QMXNeSE1yPhSc-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="616.75" y="141.5" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-60" value="Salva customer ou atualiza" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="QLIatf9QMXNeSE1yPhSc-6">
+          <mxGeometry x="0.424" y="-3" relative="1" as="geometry">
+            <mxPoint x="-33" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-25" value="Cliente Logado" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-370" y="410" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-30" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="-360" y="500" width="10" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-32" value="Executa operações de cadastro atualização ou exclusão" style="html=1;verticalAlign=bottom;startArrow=oval;endArrow=block;startSize=8;curved=0;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=5;exitPerimeter=0;" edge="1" target="QLIatf9QMXNeSE1yPhSc-50" parent="1" source="QLIatf9QMXNeSE1yPhSc-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="615" as="sourcePoint" />
+            <mxPoint x="160" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-36" value="JDBC enviado para o banco de dados" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="175" y="519.9999999999998" as="sourcePoint" />
+            <mxPoint x="503" y="519.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-39" value="Devolve resposta para o servidor" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" target="QLIatf9QMXNeSE1yPhSc-51">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="503" y="590" as="sourcePoint" />
+            <mxPoint x="170" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-40" value="Devolve resposta para o cliente" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="155" y="600" as="sourcePoint" />
+            <mxPoint x="-160" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-41" value="Lista mudanças de customers" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1" target="QLIatf9QMXNeSE1yPhSc-48">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="170" y="749.9999999999998" as="sourcePoint" />
+            <mxPoint x="503" y="749.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-42" value="recebe lista de customers que ainda não que não tiveram&lt;div&gt;seus dados enviados para o S3&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="QLIatf9QMXNeSE1yPhSc-45" target="QLIatf9QMXNeSE1yPhSc-52">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="503" y="659.9999999999998" as="sourcePoint" />
+            <mxPoint x="170" y="820" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="330" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-45" value="Banco de dados" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="460" y="410" width="100" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-46" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-45">
+          <mxGeometry x="45" y="100" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-47" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-45">
+          <mxGeometry x="43" y="210" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-38" value="Trigger&amp;nbsp;customers log_ganges&lt;div&gt;Gera um log do estado da aplicação&lt;/div&gt;&lt;div&gt;grava o dado antes da atualização e depois&lt;/div&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;" edge="1" target="QLIatf9QMXNeSE1yPhSc-47" parent="QLIatf9QMXNeSE1yPhSc-45" source="QLIatf9QMXNeSE1yPhSc-45">
+          <mxGeometry x="-0.6299" y="5" relative="1" as="geometry">
+            <mxPoint x="60" y="219.99999999999977" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="171" y="220" />
+              <mxPoint x="171" y="250" />
+            </Array>
+            <mxPoint x="60.75" y="300" as="targetPoint" />
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-48" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-45">
+          <mxGeometry x="45" y="340" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-50" value="customer service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="110" y="415" width="100" height="505" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-51" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-50">
+          <mxGeometry x="45" y="75" width="10" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-52" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-50">
+          <mxGeometry x="45" y="325" width="10" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-53" value="Job" style="shape=umlLifeline;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=rectanglePerimeter;targetShapes=umlLifeline;participant=label;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="415" width="100" height="505" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-54" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-53">
+          <mxGeometry x="45" y="325" width="10" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-55" value="Solicita bkp em arquivo" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1" source="QLIatf9QMXNeSE1yPhSc-54">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="130" y="750" as="sourcePoint" />
+            <mxPoint x="160" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-56" value="recebe resposta de sucesso ou erro" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="154.99999999999977" y="840" as="sourcePoint" />
+            <mxPoint x="-145" y="840" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-57" value="S3" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="700" y="410" width="100" height="500" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-59" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="QLIatf9QMXNeSE1yPhSc-57">
+          <mxGeometry x="45" y="340" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-58" value="Envia arquivo pronto para o s3" style="html=1;verticalAlign=bottom;startArrow=circle;startFill=1;endArrow=open;startSize=6;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="QLIatf9QMXNeSE1yPhSc-48">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="520" y="790" as="sourcePoint" />
+            <mxPoint x="750" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QLIatf9QMXNeSE1yPhSc-63" value="Sequencia" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-410" y="300" width="1250" height="690" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

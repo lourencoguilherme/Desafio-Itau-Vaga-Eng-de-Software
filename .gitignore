@@ -1,0 +1,115 @@
+# General
+*.log
+*.lock
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Node modules (Frontend)
+frontend/node_modules/
+
+# Angular specific (Frontend)
+frontend/dist/
+frontend/.angular/cache/
+frontend/.angular-build/
+
+# Java specific (Backend)
+backend/target/
+backend/out/
+backend/*.class
+backend/.gradle/
+backend/.settings/
+backend/.classpath
+backend/.project
+backend/.idea/
+backend/.vscode/
+backend/!**/src/main/
+backend/!**/src/test/
+backend/!**/src/resources/
+
+# Maven specific (Backend)
+backend/.mvn/
+backend/.mvn/timing.properties
+backend/.mvn/wrapper/maven-wrapper.properties
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/mvnw
+backend/mvnw.cmd
+
+# Gradle specific (Backend)
+backend/.gradle/
+backend/build/
+backend/gradle/
+backend/gradlew
+backend/gradlew.bat
+backend/gradle.properties
+backend/gradle-wrapper.properties
+backend/gradle-wrapper.jar
+backend/settings.gradle
+backend/settings.gradle.kts
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.suo
+
+# Coverage directories
+frontend/coverage/
+backend/coverage/
+
+# Environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+backend/.env
+backend/.env.local
+backend/.env.development.local
+backend/.env.test.local
+backend/.env.production.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# Miscellaneous
+*.log
+*.lock
+.pnp/
+.pnp.js
+
+# Optional npm cache directory
+.npm/
+
+# Optional eslint cache
+.eslintcache
+
+# Mac OS file system files
+.DS_Store
+.DS_Store?
+
+# Windows file system files
+Thumbs.db
+ehthumbs.db
+
+# Linux file system files
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
+docker-compose.override.yaml
+.docker/
+
+# Next.js specific files (if using Next.js)
+.next/
+out/
