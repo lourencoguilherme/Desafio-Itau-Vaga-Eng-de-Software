@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  backend:
+    image: openjdk:17
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+      - ~/.m2/repository:/root/.m2/repository  # Volume para o repositório Maven local
+    command: /bin/bash -c "mkdir -p /app/temp && chmod -R 777 /app/target && ./mvnw clean spring-boot:run"
+    ports:
+      - "8080:8080"
+    environment:
+      SQS_URL: http://localstack:4566/000000000000/customers-queue
+      S3_URL: http://localstack:4566
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/mydatabase
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: example
+    depends_on:
+      - postgres
+      - localstack
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  flyway:
+    image: flyway/flyway:7.7.3
+    command: -url=jdbc:postgresql://postgres:5432/mydatabase -schemas=public -user=postgres -password=example -connectRetries=60 migrate
+    volumes:
+      - ./backend/src/main/resources/db/migration:/flyway/sql
+    depends_on:
+      - postgres
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      - SERVICES=s3,sqs
+      - DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    volumes:
+      - "$PWD/scripts/localstack/init-sqs.py:/etc/localstack/init/ready.d/init-sqs.py"
+      - "$PWD/scripts/localstack/init-s3.py:/etc/localstack/init/ready.d/init-s3.py"
+volumes:
+  pgdata:
