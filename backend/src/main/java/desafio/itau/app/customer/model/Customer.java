@@ -1,6 +1,8 @@
 package desafio.itau.app.customer.model;
 
+import desafio.itau.app.customer.interceptor.CustomerInterceptor;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -10,6 +12,7 @@ import lombok.Setter;
 import java.time.Instant;
 import java.util.UUID;
 
+@EntityListeners(CustomerInterceptor.class)
 @NoArgsConstructor
 @Getter
 @Setter

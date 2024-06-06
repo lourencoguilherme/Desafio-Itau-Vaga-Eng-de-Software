@@ -1,4 +1,4 @@
-package desafio.itau.infrastructure.bucket.repository;
+package desafio.itau.infrastructure;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 

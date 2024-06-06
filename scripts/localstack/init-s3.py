@@ -8,3 +8,4 @@ s3_client = boto3.client(
 )
 
 s3_client.create_bucket(Bucket="customers-changes")
+s3_client.create_bucket(Bucket="audit-changes")

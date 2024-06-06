@@ -52,11 +52,4 @@ public class CustomerController {
         customerService.deleteCustomer(customerId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
-    @GetMapping("/audit")
-    public ResponseEntity<List<CustomerDTO>> auditCustomers() {
-        customerService.auditAllCustomers();
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
 }

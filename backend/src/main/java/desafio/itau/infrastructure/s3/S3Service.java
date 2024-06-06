@@ -1,7 +1,7 @@
-package desafio.itau.infrastructure.bucket.repository.s3;
+package desafio.itau.infrastructure.s3;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import desafio.itau.infrastructure.bucket.repository.BucketRepository;
+import desafio.itau.infrastructure.BucketRepository;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +36,11 @@ public class S3Service implements BucketRepository {
         try {
             String json = objectMapper.writeValueAsString(object);
 
-            // Salvar o JSON no Amazon S3
+            // Salvar o JSON na pasta temporaria
             Path file = Files.write(
-                    Paths.get("./temp", key),
+                    Paths.get("./temp", String.format("%s-%s",dirOrBucketName, key)),
                     json.getBytes());
+            // Salvar o JSON no Amazon S3
             s3Client.putObject(putObjectRequest, RequestBody.fromFile(file));
             log.info("Object created: {}", putObjectRequest.key());
         } catch (S3Exception e) {

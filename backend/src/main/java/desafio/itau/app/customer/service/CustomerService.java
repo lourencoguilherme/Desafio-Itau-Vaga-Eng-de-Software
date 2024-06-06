@@ -1,16 +1,13 @@
 package desafio.itau.app.customer.service;
 
-import desafio.itau.app.auditlog.model.AuditLog;
-import desafio.itau.app.auditlog.service.AuditLogService;
 import desafio.itau.app.customer.dto.CustomerCreateDTO;
 import desafio.itau.app.customer.dto.CustomerDTO;
 import desafio.itau.app.customer.dto.CustomerUpdateDTO;
 import desafio.itau.app.customer.model.Customer;
 import desafio.itau.app.customer.repository.CustomerRepository;
-import desafio.itau.infrastructure.bucket.repository.s3.S3Service;
-import org.springframework.stereotype.Service;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,12 +19,6 @@ public class CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
-
-    @Autowired
-    private S3Service bucketRepository;
-
-    @Autowired
-    private AuditLogService auditLogService;
 
     public List<CustomerDTO> getAllCustomers() {
         List<Customer> customers = customerRepository.findAll();
@@ -61,20 +52,6 @@ public class CustomerService {
     public void deleteCustomer(UUID customerId) {
         customerRepository.deleteById(customerId);
     }
-
-    public void auditAllCustomers() {
-        List<AuditLog> auditLogs = auditLogService.findAuditLogsByTableName("customers");
-
-        for (AuditLog auditLog : auditLogs) {
-            try {
-                bucketRepository.saveInFile("customers-changes", auditLog.getAuditLogId().toString(),  auditLog);
-                auditLogService.deleteAuditLogsByAuditLogId(auditLog.getAuditLogId());
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
-
 
     private CustomerDTO convertToDTO(Customer customer) {
         CustomerDTO customerDTO = new CustomerDTO();

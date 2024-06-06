@@ -50,11 +50,12 @@ services:
     ports:
       - "127.0.0.1:4566:4566"
     environment:
-      - SERVICES=s3
+      - SERVICES=s3,sqs
       - DEFAULT_REGION=us-east-1
       - AWS_ACCESS_KEY_ID=test
       - AWS_SECRET_ACCESS_KEY=test
     volumes:
+      - "$PWD/scripts/localstack/init-sqs.py:/etc/localstack/init/ready.d/init-sqs.py"
       - "$PWD/scripts/localstack/init-s3.py:/etc/localstack/init/ready.d/init-s3.py"
 volumes:
   pgdata:
