@@ -2,7 +2,7 @@ package desafio.itau.app.auditlog.service;
 
 import desafio.itau.app.auditlog.model.AuditLog;
 import desafio.itau.app.auditlog.repository.AuditLogRepository;
-import desafio.itau.infrastructure.s3.S3Service;
+import desafio.itau.infrastructure.BucketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class AuditLogService {
     private AuditLogRepository auditLogRepository;
 
     @Autowired
-    private S3Service bucketRepository;
+    private BucketService bucketRepository;
 
     @Value("${aws.sqs.auditBucket}")
     private String auditBucket;

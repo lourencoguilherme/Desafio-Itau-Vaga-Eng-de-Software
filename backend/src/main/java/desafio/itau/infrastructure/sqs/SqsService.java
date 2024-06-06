@@ -2,20 +2,15 @@ package desafio.itau.infrastructure.sqs;
 
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
-import lombok.extern.slf4j.Slf4j;
+import desafio.itau.infrastructure.QueueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SqsService {
+public class SqsService implements QueueService {
 
     @Autowired
     private AmazonSQS amazonSQS;
-
-    @Autowired
-    public SqsService(AmazonSQS amazonSQS) {
-        this.amazonSQS = amazonSQS;
-    }
 
     public void publishMessage(String filaUrl, String mensagem) {
         SendMessageRequest send_msg_request = new SendMessageRequest()

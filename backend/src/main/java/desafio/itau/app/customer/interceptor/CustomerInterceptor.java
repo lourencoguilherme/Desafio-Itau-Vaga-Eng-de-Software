@@ -1,17 +1,19 @@
 package desafio.itau.app.customer.interceptor;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import desafio.itau.app.customer.model.Customer;
-import desafio.itau.infrastructure.sqs.SqsService;
+import desafio.itau.config.AwsConfig;
+import desafio.itau.infrastructure.QueueService;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.PostPersist;
 import jakarta.persistence.PostUpdate;
 import jakarta.persistence.PreRemove;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import desafio.itau.app.customer.model.CustomerQueue;
 
 @Slf4j
 @Component
@@ -19,13 +21,13 @@ import org.springframework.stereotype.Component;
 public class CustomerInterceptor {
 
     @Autowired
-    private SqsService sqsService;
+    private QueueService sqsService;
 
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Value("${aws.sqs.customerQueue}")
-    private String customerQueue;
+    @Autowired
+    private AwsConfig awsConfig;
 
     @PostPersist
     public void postPersist(Object entity) {
@@ -44,8 +46,8 @@ public class CustomerInterceptor {
 
     private void publishToSQS(String operation, Object entity) {
         try {
-            String json  = objectMapper.writeValueAsString(entity);
-            sqsService.publishMessage(customerQueue, json);
+            String json  = objectMapper.writeValueAsString(new CustomerQueue(operation, (Customer) entity));
+            sqsService.publishMessage(awsConfig.getCustomerQueue(), json);
         } catch (Exception e) {
             log.error("Error uploading object: {}", e.getMessage());
         }

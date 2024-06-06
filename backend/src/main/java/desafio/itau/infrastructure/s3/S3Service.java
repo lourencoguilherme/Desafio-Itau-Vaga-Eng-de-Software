@@ -1,7 +1,7 @@
 package desafio.itau.infrastructure.s3;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import desafio.itau.infrastructure.BucketRepository;
+import desafio.itau.infrastructure.BucketService;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.nio.file.Paths;
 
 @Slf4j
 @Service
-public class S3Service implements BucketRepository {
+public class S3Service implements BucketService {
 
     @Autowired
     private S3Client s3Client;
