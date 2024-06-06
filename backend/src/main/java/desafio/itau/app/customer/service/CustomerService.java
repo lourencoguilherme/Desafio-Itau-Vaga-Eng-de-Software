@@ -6,7 +6,6 @@ import desafio.itau.app.customer.dto.CustomerUpdateDTO;
 import desafio.itau.app.customer.model.Customer;
 import desafio.itau.app.customer.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
