@@ -1,6 +1,5 @@
 package desafio.itau.app.customer.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import desafio.itau.app.auditlog.model.AuditLog;
 import desafio.itau.app.auditlog.service.AuditLogService;
 import desafio.itau.app.customer.dto.CustomerCreateDTO;
@@ -8,8 +7,6 @@ import desafio.itau.app.customer.dto.CustomerDTO;
 import desafio.itau.app.customer.dto.CustomerUpdateDTO;
 import desafio.itau.app.customer.model.Customer;
 import desafio.itau.app.customer.repository.CustomerRepository;
-import desafio.itau.infrastructure.bucket.repository.BucketRepository;
-import desafio.itau.infrastructure.bucket.repository.s3.S3Repository;
 import desafio.itau.infrastructure.bucket.repository.s3.S3Service;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +25,7 @@ public class CustomerService {
 
     @Autowired
     private S3Service bucketRepository;
+
     @Autowired
     private AuditLogService auditLogService;
 

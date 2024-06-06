@@ -1,22 +1,23 @@
 package desafio.itau.infrastructure.bucket.repository.s3;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import desafio.itau.infrastructure.bucket.repository.BucketRepository;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.model.S3Exception;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
 @Slf4j
 @Service
-public class S3Service {
+public class S3Service implements BucketRepository {
 
     @Autowired
     private S3Client s3Client;

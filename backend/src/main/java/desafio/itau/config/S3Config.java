@@ -9,6 +9,11 @@ import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+import software.amazon.awssdk.core.client.config.ClientOverrideConfiguration;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.s3.S3Client;
 
 import java.net.URI;
 
@@ -23,16 +28,24 @@ public class S3Config {
 
     @Value("${aws.region}")
     private String region;
+
     @Value("${aws.serviceEndpoint}")
     private String serviceEndpoint;
 
     @Bean
-    public AmazonS3 autheticationS3() {
-
-        return AmazonS3ClientBuilder
-                .standard()
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(serviceEndpoint, region))
-                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey, secretKey)))
+    public S3Client s3Client() {
+        return S3Client.builder()
+                .overrideConfiguration(ClientOverrideConfiguration.builder().build())
+                .credentialsProvider(getCredentialsProvider())
+                .endpointOverride(URI.create(serviceEndpoint))
+                .region(Region.of(region))
+                .forcePathStyle(true)
                 .build();
+    }
+
+    private StaticCredentialsProvider getCredentialsProvider() {
+        return StaticCredentialsProvider.create(AwsBasicCredentials.create(
+                accessKey,
+                secretKey));
     }
 }
