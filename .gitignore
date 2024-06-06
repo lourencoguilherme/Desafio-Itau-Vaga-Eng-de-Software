@@ -80,6 +80,8 @@ backend/.env.production.local
 # Temporary files
 *.tmp
 *.temp
+temp
+temp/
 
 # Miscellaneous
 *.log
