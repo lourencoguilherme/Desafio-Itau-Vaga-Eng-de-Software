@@ -1,12 +1,16 @@
 package desafio.itau.app.customer.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import desafio.itau.app.auditlog.model.AuditLog;
+import desafio.itau.app.auditlog.service.AuditLogService;
 import desafio.itau.app.customer.dto.CustomerCreateDTO;
 import desafio.itau.app.customer.dto.CustomerDTO;
+import desafio.itau.app.customer.dto.CustomerUpdateDTO;
 import desafio.itau.app.customer.model.Customer;
 import desafio.itau.app.customer.repository.CustomerRepository;
 import desafio.itau.infrastructure.bucket.repository.BucketRepository;
 import desafio.itau.infrastructure.bucket.repository.s3.S3Repository;
+import desafio.itau.infrastructure.bucket.repository.s3.S3Service;
 import org.springframework.stereotype.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +27,9 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     @Autowired
-    private BucketRepository<Customer> bucketRepository;
+    private S3Service bucketRepository;
+    @Autowired
+    private AuditLogService auditLogService;
 
     public List<CustomerDTO> getAllCustomers() {
         List<Customer> customers = customerRepository.findAll();
@@ -43,12 +49,11 @@ public class CustomerService {
         return convertToDTO(savedCustomer);
     }
 
-    public CustomerDTO updateCustomer(UUID customerId, CustomerDTO customerDTO) {
+    public CustomerDTO updateCustomer(UUID customerId, CustomerUpdateDTO customerDTO) {
         Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
         if (optionalCustomer.isPresent()) {
             Customer existingCustomer = optionalCustomer.get();
-            convertToDTO(existingCustomer);
-            existingCustomer.setCustomerId(customerId);
+            existingCustomer.setName(customerDTO.getName());
             Customer updatedCustomer = customerRepository.save(existingCustomer);
             return convertToDTO(updatedCustomer);
         }
@@ -59,20 +64,17 @@ public class CustomerService {
         customerRepository.deleteById(customerId);
     }
 
-    public List<CustomerDTO> auditAllCustomers() {
-        List<Customer> customers = customerRepository.findAll();
+    public void auditAllCustomers() {
+        List<AuditLog> auditLogs = auditLogService.findAuditLogsByTableName("customers");
 
-        for (Customer customer : customers) {
+        for (AuditLog auditLog : auditLogs) {
             try {
-                bucketRepository.saveInFile("customers-changes", customer.getCustomerId().toString(),  customer);
+                bucketRepository.saveInFile("customers-changes", auditLog.getAuditLogId().toString(),  auditLog);
+                auditLogService.deleteAuditLogsByAuditLogId(auditLog.getAuditLogId());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
-
-        return customers.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
     }
 
 

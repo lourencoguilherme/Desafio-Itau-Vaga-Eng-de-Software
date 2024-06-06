@@ -2,6 +2,7 @@ package desafio.itau.app.customer.contoller;
 
 import desafio.itau.app.customer.dto.CustomerCreateDTO;
 import desafio.itau.app.customer.dto.CustomerDTO;
+import desafio.itau.app.customer.dto.CustomerUpdateDTO;
 import desafio.itau.app.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,9 @@ public class CustomerController {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable UUID id) {
-        return customerService.getCustomerById(id)
+    @GetMapping("/{customerId}")
+    public ResponseEntity<CustomerDTO> getCustomerById(@PathVariable UUID customerId) {
+        return customerService.getCustomerById(customerId)
                 .map(customer -> new ResponseEntity<>(customer, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -36,8 +37,8 @@ public class CustomerController {
         return new ResponseEntity<>(customer, HttpStatus.CREATED);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable UUID customerId, @RequestBody CustomerDTO customerDTO) {
+    @PutMapping("/{customerId}")
+    public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable UUID customerId, @RequestBody CustomerUpdateDTO customerDTO) {
         CustomerDTO customer = customerService.updateCustomer(customerId, customerDTO);
         if (customer != null) {
             return new ResponseEntity<>(customer, HttpStatus.OK);
@@ -54,8 +55,8 @@ public class CustomerController {
 
     @GetMapping("/audit")
     public ResponseEntity<List<CustomerDTO>> auditCustomers() {
-        List<CustomerDTO> customers = customerService.auditAllCustomers();
-        return new ResponseEntity<>(customers, HttpStatus.OK);
+        customerService.auditAllCustomers();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }

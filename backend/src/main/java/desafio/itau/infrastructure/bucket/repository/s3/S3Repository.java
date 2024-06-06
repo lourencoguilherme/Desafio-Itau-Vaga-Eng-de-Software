@@ -7,6 +7,8 @@ import desafio.itau.infrastructure.bucket.repository.BucketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayInputStream;
+
 @Service
 public class S3Repository<T> implements BucketRepository<T> {
 
@@ -21,6 +23,7 @@ public class S3Repository<T> implements BucketRepository<T> {
         String json = objectMapper.writeValueAsString(object);
 
         // Salvar o JSON no Amazon S3
-        amazonS3.putObject(dirOrBucketName, key, json);
+        amazonS3.putObject(dirOrBucketName, key, "");
     }
+
 }
